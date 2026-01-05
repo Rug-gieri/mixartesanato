@@ -178,17 +178,6 @@ function finalizarCompra() {
     toggleCart();
 }
 
-// Formulário de Contato
-function enviarContato(event) {
-    event.preventDefault();
-
-    const form = event.target;
-    const formData = new FormData(form);
-
-    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-    form.reset();
-}
-
 // Modal de Produto
 let currentProduct = null;
 
