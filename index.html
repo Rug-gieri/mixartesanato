@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mix Artesanato</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="assets/logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <img src="assets/logo.svg" alt="Logo" class="logo-img">
+                    <span>Mix Artesanato</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#sobre">A Artesã</a></li>
+                    
+                </ul>
+                <div class="nav-actions">
+                    <button class="cart-btn" onclick="toggleCart()">
+                        🛒 <span class="cart-text">Carrinho</span> (<span id="cart-count">0</span>)
+                    </button>
+                    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Carrossel -->
+    <section id="home" class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slide active"
+                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/images/home_back.jpg'); background-size: cover; background-position: center;">
+                <div class="carousel-content">
+                    <h1>Artesanato Feito com Amor</h1>
+                    <p>Peças únicas e exclusivas para sua casa</p>
+                </div>
+            </div>
+            <div class="carousel-slide"
+                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/images/home2.png'); background-size: cover; background-position: center;">
+                <div class="carousel-content">
+                    <h1>Decoração Personalizada</h1>
+                    <p>Transforme seu espaço com arte manual</p>
+                </div>
+            </div>
+            <div class="carousel-slide"
+                style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/images/galo_da_serra.png'); background-size: cover; background-position: center;">
+                <div class="carousel-content">
+                    <h1>Preservando o que é importante</h1>
+                    <p>Conte um negócio que apoia a sustensabilidade e consciêcia ecológica</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+        <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+        <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </section>
+
+    <!-- Produtos -->
+    <section id="produtos" class="produtos">
+        <div class="container">
+            <h2>Nossos Produtos</h2>
+            <div class="produtos-grid">
+                <div class="produto-card" onclick="openProductModal('Chaveiro Gatinho', 'Feito a mão para andar sempre com seu bixinho (costumizável).', 35, 'assets/images/chaveiro_dom.jpeg', 'Chaveiro personalizado feito com muito carinho. Perfeito para quem ama seus pets e quer carregá-los sempre por perto. Disponível em diferentes modelos e cores, totalmente customizável conforme sua preferência.')">
+                    <img src="assets/images/chaveiro_dom.jpeg" alt="Chaveiro Gatinho" class="produto-img">
+                    <h3>Chaveiro Gatinho</h3>
+                    <p>Feito a mão para andar sempre com seu bixinho (costumizável).</p>
+                    <p class="preco">R$ 35,00</p>
+                    <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Chaveiro Gatinho', 35)">Adicionar ao
+                        Carrinho</button>
+                </div>
+                <div class="produto-card" onclick="openProductModal('Ecobag Artesanal', 'Ecobag feita totalmente com materiais sustentáveis', 40, 'assets/images/eco_gatinho.png', 'Ecobag artesanal produzida com materiais 100% sustentáveis e recicláveis. Ideal para suas compras do dia a dia, combinando estilo, funcionalidade e consciência ambiental. Disponível em diversos tamanhos e estampas exclusivas.')">
+                    <img src="assets/images/eco_gatinho.png" alt="ecobag artesanal" class="produto-img">
+                    <h3>Ecobag Artesenal</h3>
+                    <p>Ecobag feita totalmente com materiais sustentáveis</p>
+                    <p class="preco">R$ 40,00</p>
+                    <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ecobag Artesanal', 40)">Adicionar ao
+                        Carrinho</button>
+                </div>
+                <div class="produto-card" onclick="openProductModal('Vaso Artesanal', 'Vazinhos e arranjos prontos de plantinhas para dar nova vida ao seu lar!', 30, 'assets/images/vaso.png', 'Vasos artesanais únicos com arranjos de plantas já prontos. Cada peça é cuidadosamente montada para trazer vida e beleza natural ao seu ambiente. Perfeito para decorar qualquer espaço com estilo sustentável e acolhedor.')">
+                    <img src="assets/images/vaso.png" alt="Vaso Atersanal" class="produto-img">
+                    <h3>Vaso Artesanal</h3>
+                    <p>Vazinhos e arranjos prontos de plantinhas para dar nova vida ao seu lar!</p>
+                    <p class="preco">R$ 30,00</p>
+                    <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Vaso Artesanal', 30)">Adicionar ao
+                        Carrinho</button>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="servicos">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="servicos-grid">
+                <div class="servico-card">
+                    <div class="servico-icon">✨</div>
+                    <h3>Encomendas Personalizadas</h3>
+                    <p>Criamos peças únicas sob medida para você</p>
+                </div>
+                <a href="https://www.instagram.com/unnibazar?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><div class="servico-card">
+                    <div class="servico-icon">👗</div>
+                    <h3>Brechó Peça Única</h3>
+                    <p>Compra e venda de peças em ótimo estado e com preço acessível!</p>
+                </div></a>
+                <div class="servico-card">
+                    <div class="servico-icon">🏠</div>
+                    <h3>Decoração de Ambientes</h3>
+                    <p>Consultoria para decoração artesanal da sua casa ou evento!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contato">
+        <div class="container">
+            <h2>Por que sustentável?</h2>
+           
+            <p>Nós, da Mix Artesanato, acreditamos que a natureza é o nosso maior bem. Nossa missão é tornar o mundo mais sustentável, ecológico e consciente da importância do nosso planeta.</p>
+            <br>
+            <p>Por isso, preocupamo-nos em utilizar apenas materiais recicláveis e que não agridem o meio ambiente.</p> 
+            <br>
+            <p>Queremos transmitir essa mensagem em cada uma de nossas peças, feitas com muito amor e cuidado.</p>
+
+        </div>
+    </section>
+
+    <!-- Sobre a Artesã -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <div class="sobre-grid">
+                <div class="sobre-img-container">
+                    <img src="assets/images/lidi_run.png" alt="A Artesã" class="sobre-img">
+                </div>
+                <div class="sobre-content">
+                    <h2>Sobre a Artesã</h2>
+                    <p>Olá! Eu sou a Lidiane, as mãos e o coração por trás da <strong>Mix Artesanato</strong>. Com mais
+                        de 15
+                        anos de experiência no mundo do artesanato, apaixonada pela natureza, dedico cada dia a equilibrar um estilo de vida sustentável, autocuidado e criar peças que tragam alma e
+                        personalidade para para quem aprecia arte e tem amor pelo meio ambiente.</p>
+                    <p>Acredito que o trabalho manual carrega uma energia única. Cada vaso, cada bordado e cada costura que sai do meu ateliê é feito com cuidado, paciência e muito amor. Meu objetivo é
+                        transformar materiais simples, sustentáveis e duradouros em verdadeiras obras de arte que contam
+                        histórias.</p>
+                    <p>Seja bem-vindo ao meu mundo de cores, criatividade e texturas!</p>
+                    <p>Gostou do que viu ou tem alguma sugestão? Entre em contato comigo pelo WhatsApp ou Instagram!</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrinho Lateral -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Meu Carrinho</h3>
+            <button class="close-cart" onclick="toggleCart()">✕</button>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total:</strong>
+                <strong id="cart-total">R$ 0,00</strong>
+            </div>
+            <button class="btn-checkout" onclick="finalizarCompra()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Modal de Produto -->
+    <div id="product-modal" class="product-modal">
+        <div class="modal-overlay" onclick="closeProductModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProductModal()">✕</button>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modal-product-image" src="" alt="" class="modal-product-image">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-product-name"></h2>
+                    <p id="modal-product-short-desc" class="modal-short-desc"></p>
+                    <p id="modal-product-full-desc" class="modal-full-desc"></p>
+                    <p class="modal-price" id="modal-product-price"></p>
+                    <button class="btn-add-cart-modal" id="modal-add-cart-btn" onclick="addToCartFromModal()">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botões de Contato Flutuantes -->
+    <div class="floating-socials">
+        <a href="https://wa.me/556992872548?text=Oii%2C%20quero%20conhecer%20mais%20do%20trabalho%20de%20Mix%20Artesanatol!" target="_blank" class="social-btn whatsapp" title="Fale no WhatsApp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+        <a href="https://www.instagram.com/unnibazar?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-btn instagram"
+            title="Siga no Instagram">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Mix Artesanato - Desenvolvido com amor por <a href="https://rethinksoftware.com.br"><strong>Rethink Software</strong></a>. Porto Velho, RO</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
